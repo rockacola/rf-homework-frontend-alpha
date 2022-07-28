@@ -35,9 +35,11 @@ export const TestSuiteRow = ({ testSuite }) => {
                   return (
                     <tr>
                       <td style={{ width: "150px" }}></td>
-                      <td style={{ width: "350px" }}>{tp.test_name}</td>
+                      <td style={{ width: "300px" }}>{tp.test_name}</td>
                       <td style={{ width: "150px" }}>{tp.browser}</td>
-                      <td style={{ width: "50px" }}>{tp.instruction_count}</td>
+                      <td style={{ width: "150px", textAlign: "right" }}>
+                        {tp.instruction_count} instructions
+                      </td>
                     </tr>
                   );
                 })}

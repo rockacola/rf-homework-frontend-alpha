@@ -23,7 +23,9 @@ export const TestSuites = () => {
   // TODO: have a hydrating state
   return (
     <div>
-      <div>TestSuites. count: {testSuites.length}</div>
+      <h1>
+        List of Test Suites <small>(count: {testSuites.length})</small>
+      </h1>
       <div style={{ paddingTop: "10px", paddingBottom: "20px" }}>
         <Link to="/test_suites/create">[Create New]</Link>
       </div>
