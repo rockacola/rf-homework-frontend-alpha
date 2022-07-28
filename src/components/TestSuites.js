@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getTestSuites } from "../endpoints/api";
 import { TestSuiteRow } from "./TestSuiteRow";
 
@@ -23,6 +24,9 @@ export const TestSuites = () => {
   return (
     <div>
       <div>TestSuites. count: {testSuites.length}</div>
+      <div style={{ paddingTop: "10px", paddingBottom: "20px" }}>
+        <Link to="/test_suites/create">[Create New]</Link>
+      </div>
       <div>
         <table border="1" cellspacing="0" cellpadding="0">
           <thead>

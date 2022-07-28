@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const TestSuiteRow = ({ testSuite }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -20,8 +21,11 @@ export const TestSuiteRow = ({ testSuite }) => {
         <td style={{ textAlign: "right" }}>
           {testSuite.test_plans.length} tests
         </td>
-        <td style={{ paddingLeft: "10px", paddingRight: "10px" }}>[Edit]</td>
+        <td style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+          <Link to={`/test_suites/${testSuite.id}/edit`}>[Edit]</Link>
+        </td>
       </tr>
+
       {showDetails && (
         <tr>
           <td colspan="4">
