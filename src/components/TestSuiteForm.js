@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export const TestSuiteForm = ({ testSuite }) => {
+  console.log("testSuite:", testSuite);
   const heading = !!testSuite ? "Edit Test Suite" : "Create Test Suite";
   const submitButtonLabel = !!testSuite ? "Submit Change" : "Create";
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,17 +21,35 @@ export const TestSuiteForm = ({ testSuite }) => {
     setFormData(mutatedFormData);
   };
 
+  const onTestPlanChange = (index, mutatedTestPlan) => {
+    let mutatedTestPlans = [];
+    if (mutatedTestPlan === null) {
+      // Remove item
+      mutatedTestPlans = formData.test_plans.filter((tp, i) => i !== index);
+    } else {
+      // Modify item
+      mutatedTestPlans = formData.test_plans.map((tp, i) =>
+        i === index ? mutatedTestPlan : tp
+      );
+    }
+
+    const mutatedFormData = {
+      ...formData,
+      test_plans: mutatedTestPlans,
+    };
+    setFormData(mutatedFormData);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
-
     // TODO: sanitize
     // TODO: validate
-    // TODO: submission
-
     setIsSubmitting(true);
   };
 
   if (isSubmitting) {
+    console.log("Submitting:");
+    console.log(JSON.stringify(formData));
     return <pre>{JSON.stringify(formData, null, 2)}</pre>;
   }
 
@@ -39,7 +58,7 @@ export const TestSuiteForm = ({ testSuite }) => {
       <h1>{heading}</h1>
       <form onSubmit={onSubmit}>
         {!!testSuite && <div>ID: {testSuite.id}</div>}
-        <div style={{ marginTop: "10px", marginBottom: "10px" }}>
+        <div style={{ marginBottom: "10px" }}>
           <label htmlFor="test_suite_name">Name: </label>
           <input
             type="text"
@@ -49,6 +68,57 @@ export const TestSuiteForm = ({ testSuite }) => {
             onChange={onChange}
             style={{ width: "300px" }}
           />
+        </div>
+
+        <h4>Test Plans</h4>
+        <div style={{ marginLeft: "10px" }}>
+          {!!formData.test_plans &&
+            formData.test_plans.map((tp, index) => (
+              <div
+                key={index}
+                style={{
+                  marginBottom: "10px",
+                  padding: "20px",
+                  border: "solid 1px #aaa",
+                }}
+              >
+                <div style={{ marginBottom: "10px" }}>
+                  <label>Name: </label>
+                  <input
+                    type="text"
+                    value={tp.test_name}
+                    onChange={(e) =>
+                      onTestPlanChange(index, {
+                        ...tp,
+                        test_name: e.target.value,
+                      })
+                    }
+                    style={{ width: "200px" }}
+                  />
+                </div>
+
+                <div style={{ marginBottom: "10px" }}>
+                  <label>Instruction Count: </label>
+                  <input
+                    type="text"
+                    value={tp.instruction_count}
+                    onChange={(e) =>
+                      onTestPlanChange(index, {
+                        ...tp,
+                        // TODO: prefer to validating it rather than auto sanitizing it
+                        instruction_count: parseInt(e.target.value, 10),
+                      })
+                    }
+                    style={{ width: "200px" }}
+                  />
+                </div>
+                <div>
+                  <div onClick={() => onTestPlanChange(index, null)}>
+                    [Remove]
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
 
         <div style={{ marginTop: "20px" }}>
