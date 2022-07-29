@@ -42,8 +42,7 @@ export const TestSuiteForm = ({ testSuite }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // TODO: sanitize
-    // TODO: validate
+    // TODO: validate & error message support
     setIsSubmitting(true);
   };
 
@@ -98,6 +97,43 @@ export const TestSuiteForm = ({ testSuite }) => {
                 </div>
 
                 <div style={{ marginBottom: "10px" }}>
+                  <label>Browser: </label>
+                  <select
+                    onChange={(e) =>
+                      onTestPlanChange(index, {
+                        ...tp,
+                        browser: e.target.value,
+                      })
+                    }
+                  >
+                    <option
+                      value="firefox"
+                      selected={tp.browser === "firefox" ? "selected" : false}
+                    >
+                      Firefox
+                    </option>
+                    <option
+                      value="chrome"
+                      selected={tp.browser === "chrome" ? "selected" : false}
+                    >
+                      Chrome
+                    </option>
+                    <option
+                      value="safari"
+                      selected={tp.browser === "safari" ? "selected" : false}
+                    >
+                      Safari
+                    </option>
+                    <option
+                      value="edge"
+                      selected={tp.browser === "edge" ? "selected" : false}
+                    >
+                      Edge
+                    </option>
+                  </select>
+                </div>
+
+                <div style={{ marginBottom: "10px" }}>
                   <label>Instruction Count: </label>
                   <input
                     type="text"
@@ -113,7 +149,14 @@ export const TestSuiteForm = ({ testSuite }) => {
                   />
                 </div>
                 <div>
-                  <div onClick={() => onTestPlanChange(index, null)}>
+                  <div
+                    onClick={() => onTestPlanChange(index, null)}
+                    style={{
+                      display: "inline-block",
+                      cursor: "pointer",
+                      color: "crimson",
+                    }}
+                  >
                     [Remove]
                   </div>
                 </div>

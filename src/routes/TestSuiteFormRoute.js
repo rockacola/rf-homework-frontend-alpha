@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { TestSuiteForm } from "../components/TestSuiteForm";
 import { useTestSuite } from "../hooks/useTestSuite";
 
@@ -10,6 +10,7 @@ export const TestSuiteFormRoute = () => {
 
   return (
     <div>
+      <Link to="/">[Go Back]</Link>
       <TestSuiteForm testSuite={targetTestSuite} />
     </div>
   );
