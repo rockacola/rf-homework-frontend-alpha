@@ -6,11 +6,13 @@ describe("TestSuites", () => {
   let comp, props;
 
   describe("when empty", () => {
-    props = { testSuites: [] };
-    comp = renderer.create(<TestSuites {...props} />);
-  });
+    beforeEach(() => {
+      props = { testSuites: [] };
+      comp = renderer.create(<TestSuites {...props} />);
+    });
 
-  it("renders", () => {
-    expect(comp).toMatchSnapshot();
+    it("renders", () => {
+      expect(comp).toMatchSnapshot();
+    });
   });
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TestSuites renders 1`] = `
+exports[`TestSuites when empty renders 1`] = `
 <table
   border="1"
   cellPadding="0"
