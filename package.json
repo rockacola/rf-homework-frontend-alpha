@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "sh start.sh",
-    "start-dev": "react-scripts start"
+    "start-dev": "react-scripts start",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
@@ -24,5 +25,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-test-renderer": "^18.2.0"
   }
 }

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TestSuites renders 1`] = `
+<table
+  border="1"
+  cellPadding="0"
+  cellSpacing="0"
+>
+  <thead>
+    <tr>
+      <th
+        style={
+          Object {
+            "width": "50px",
+          }
+        }
+      />
+      <th
+        style={
+          Object {
+            "width": "250px",
+          }
+        }
+      >
+        Name
+      </th>
+      <th
+        style={
+          Object {
+            "width": "450px",
+          }
+        }
+      >
+        Count
+      </th>
+      <th />
+    </tr>
+  </thead>
+  <tbody />
+</table>
+`;
