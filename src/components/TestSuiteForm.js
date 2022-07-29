@@ -40,6 +40,22 @@ export const TestSuiteForm = ({ testSuite }) => {
     setFormData(mutatedFormData);
   };
 
+  const onTestPlanCreate = () => {
+    const mutatedFormData = {
+      ...formData,
+      test_plans: [
+        ...formData.test_plans,
+        // TODO: should I give it default values like that?
+        {
+          test_name: "",
+          browser: "firefox",
+          instruction_count: 0,
+        },
+      ],
+    };
+    setFormData(mutatedFormData);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     // TODO: validate & error message support
@@ -148,6 +164,7 @@ export const TestSuiteForm = ({ testSuite }) => {
                     style={{ width: "200px" }}
                   />
                 </div>
+
                 <div>
                   <div
                     onClick={() => onTestPlanChange(index, null)}
@@ -164,7 +181,26 @@ export const TestSuiteForm = ({ testSuite }) => {
             ))}
         </div>
 
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginLeft: "12px" }}>
+          <div
+            onClick={() => onTestPlanCreate()}
+            style={{
+              display: "inline-block",
+              cursor: "pointer",
+              color: "blue",
+            }}
+          >
+            [Add Test Plan]
+          </div>
+        </div>
+
+        <div
+          style={{
+            marginTop: "30px",
+            padding: "15px",
+            backgroundColor: "#f1f1f1",
+          }}
+        >
           <input type="submit" value={submitButtonLabel} />
         </div>
       </form>
