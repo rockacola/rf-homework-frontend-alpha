@@ -2,6 +2,7 @@
 
 ## Get Start
 
+- Clone this repo and check out the `master` branch
 - To start project locally: `yarn && yarn start`
 - Browse to `http://localhost:3000/` to start off with list of Test suites
 
