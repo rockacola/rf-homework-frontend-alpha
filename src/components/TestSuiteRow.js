@@ -31,9 +31,9 @@ export const TestSuiteRow = ({ testSuite }) => {
           <td colspan="4">
             <table border="0" cellspacing="0" cellpadding="0">
               <tbody>
-                {testSuite.test_plans.map((tp) => {
+                {testSuite.test_plans.map((tp, index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td style={{ width: "150px" }}></td>
                       <td style={{ width: "300px" }}>{tp.test_name}</td>
                       <td style={{ width: "150px" }}>{tp.browser}</td>
