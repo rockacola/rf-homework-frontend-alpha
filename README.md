@@ -7,5 +7,5 @@
 
 ## Development Environment
 
-- Implemented under `nodejs 18.6.0`
+- Implemented under `nodejs 18.6.0` and vanilla JavaScript
 - Using provided CRA version
