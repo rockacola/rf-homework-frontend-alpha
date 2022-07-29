@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TestSuites renders 1`] = `
+<table
+  border="1"
+  cellPadding="0"
+  cellSpacing="0"
+>
+  <thead>
+    <tr>
+      <th
+        style={
+          Object {
+            "width": "50px",
+          }
+        }
+      />
+      <th
+        style={
+          Object {
+            "width": "250px",
+          }
+        }
+      >
+        Name
+      </th>
+      <th
+        style={
+          Object {
+            "width": "450px",
+          }
+        }
+      >
+        Count
+      </th>
+      <th />
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      data-test-suite-id={19}
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      <td>
+        ▶
+      </td>
+      <td>
+        Suite Coffee Brown Log
+      </td>
+      <td
+        style={
+          Object {
+            "textAlign": "right",
+          }
+        }
+      >
+        1
+         tests
+      </td>
+      <td
+        style={
+          Object {
+            "paddingLeft": "10px",
+            "paddingRight": "10px",
+          }
+        }
+      >
+        <a
+          href="/test_suites/19/edit"
+          onClick={[Function]}
+        >
+          [Edit]
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
 exports[`TestSuites when empty renders 1`] = `
 <table
   border="1"

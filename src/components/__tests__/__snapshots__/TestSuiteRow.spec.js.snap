@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TestSuiteRow renders 1`] = `
+<tr
+  data-test-suite-id={19}
+  onClick={[Function]}
+  style={
+    Object {
+      "cursor": "pointer",
+    }
+  }
+>
+  <td>
+    ▶
+  </td>
+  <td>
+    Suite Coffee Brown Log
+  </td>
+  <td
+    style={
+      Object {
+        "textAlign": "right",
+      }
+    }
+  >
+    1
+     tests
+  </td>
+  <td
+    style={
+      Object {
+        "paddingLeft": "10px",
+        "paddingRight": "10px",
+      }
+    }
+  >
+    <a
+      href="/test_suites/19/edit"
+      onClick={[Function]}
+    >
+      [Edit]
+    </a>
+  </td>
+</tr>
+`;
